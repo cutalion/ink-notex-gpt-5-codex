@@ -1,0 +1,3 @@
+{"version": 2, "width": 80, "height": 24, "timestamp": 1736294400, "env": {"SHELL": "bash", "TERM": "xterm-256color"}}
+[0.0, "o", "\u001b]0;ink-todo demo\a"]
+[0.1, "o", "Ink TODO\r\nControls: `a` add · arrows/k-j navigate · space/enter toggle · `d` delete · `q` quit\r\nPress `a` to start adding a task.\r\n\r\nNo tasks yet.\r\n"]
