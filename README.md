@@ -1,30 +1,51 @@
 # Ink TODO
 
-Interactive terminal TODO app built with [Ink](https://www.npmjs.com/package/ink).
+Interactive TODO CLI built with [Ink](https://www.npmjs.com/package/ink) (React for CLIs).
+Same goal as [ink-notex](https://github.com/cutalion/ink-notex/), but created with the `gpt-5-codex` model.
 
-## Setup
+## Demo
 
-```sh
-npm install
-```
+![Ink TODO demo](./demo.gif)
 
-## Run
+Watch the terminal cast on Asciinema: <https://asciinema.org/a/llI5x9F1NvSoflDv7Wcec6WLd>
 
-```sh
-npm start
-```
+## Install & Run
 
-Once running in a TTY, use the following keys:
+- Local run:
+  - `npm install`
+  - `npm start`
+- As a command (link locally):
+  - `npm link`
+  - `ink-todo`
 
-- `a` start adding a new task
-- Arrow keys or `j`/`k` to move the selection
-- `space` or `enter` to toggle completion
-- `d` to delete the highlighted task
-- `q` (or `Ctrl+C`) to exit
-- `Esc` cancels task creation while typing
+## Keys
 
-Tip: the command must be run inside an interactive terminal. Avoid piping input
-or running under `npm test`/CI, as Ink requires TTY support for raw mode.
+- Up/Down or `j`/`k`: Navigate tasks (PageUp/PageDown, Home/End jump further)
+- `space` or `enter`: Toggle the selected todo
+- `a`: Add a todo · `e`: Edit · `d` / `Delete`: Remove
+- `u` / `Ctrl+Z`: Undo · `r` / `Ctrl+Y` / `Shift+Ctrl+Z`: Redo
+- `s`: Storage settings · `?`: Help overlay
+- `q` or double `Ctrl+C`: Quit safely · `Esc`: Cancel input/close panels
+
+## Highlights
+
+- Autosaves after every change and shows Undo/Redo readiness plus storage info.
+- Detail panel tracks created/completed timestamps for the focused todo.
+- Built-in help (`?`) and settings panels keep navigation keyboard-first.
+- Adjustable storage: switch between global and project scopes without leaving the TUI.
+
+## Data
+
+- Global storage: `~/.ink-notex/todos.json`
+- Project storage: `./.ink-notex-todos.json`
+- Config file: `~/.ink-notex/config.json` (remembers the last storage mode)
+- Defaults to project mode when a project file exists, otherwise global.
+
+## Notes
+
+- Requires an interactive terminal; avoid piping input or running under CI.
+- Status bar surfaces autosave issues—watch for red warnings if writes fail.
+- Terminals without raw-mode support exit on a single `Ctrl+C`.
 
 ## Generation Notes
 
